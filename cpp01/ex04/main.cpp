@@ -11,19 +11,19 @@ int main(int ac, char **av)
 	std::string s1 = av[2];
 	std::string s2 = av[3];
 
-	if (s1.empty() || s2.empty())
-		return (std::cerr << "Error: s1 and s2 cannot be empty." << std::endl, 1);
+	if (s1.empty())
+		return (std::cerr << "Error: s1 cannot be empty." << std::endl, 1);
 
 	std::ifstream infile;
 	std::ofstream outfile;
 
 	std::string line;
 
-	infile.open(filename);
+	infile.open(filename.c_str());
 	if (!infile.is_open()) return (std::cerr << "Failed to open infile" << std::endl, 1);
 
 	filename += ".replace";
-	outfile.open(filename);
+	outfile.open(filename.c_str());
 	if (!outfile.is_open()) return (infile.close(), std::cerr << "Failed to open outfile" << std::endl, 1);
 
 	while (std::getline(infile, line))
@@ -37,7 +37,7 @@ int main(int ac, char **av)
 		}
 		outfile << line;
 		if (!infile.eof())
-			outfile << '\n';
+			outfile << std::endl;
 	}
 	infile.close();
 	outfile.close();
