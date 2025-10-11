@@ -7,13 +7,13 @@ int main()
 	while (1)
 	{
 		std::string input;
-		getline(std::cin, input);;
-		if (input == "ADD")
+		std::cout << "Enter a command (ADD, SEARCH or EXIT)" << std::endl;
+		if (!getline(std::cin, input) || input == "EXIT")
+			break ;
+		else if (input == "ADD")
 			phonebook.add_contact();
 		else if (input == "SEARCH")
 			phonebook.search_contact();
-		else if (input == "EXIT")
-			exit(0);
 	}
 	return (0);
 }

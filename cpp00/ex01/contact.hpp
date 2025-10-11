@@ -7,7 +7,7 @@
 class Contact
 {
 	private:
-		std::string	index;
+		int			index;
 		std::string first_name;
 		std::string last_name;
 		std::string nick_name;
