@@ -35,7 +35,16 @@ Fixed& Fixed::operator=(const Fixed& copy)
 
 Fixed::~Fixed(){std::cout << "Destructor called" << std::endl;}
 
-Fixed::Fixed(const int number)
+Fixed::Fixed(const int number) : fixed_point(number << fractional_bits) {}
+
+Fixed::Fixed(const float number) : fixed_point(static_cast<int> (roundf(number * (1U << fractional_bits)))) {}
+
+float Fixed::toFloat( void ) const {return static_cast<float>(fixed_point) / (1U << fractional_bits);}
+
+int	Fixed::toInt(void) const {return fixed_point >> fractional_bits;}
+
+std::ostream&	operator<<(std::ostream& os, const Fixed& other)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	os << other.toFloat();
+	return (os);
 }
