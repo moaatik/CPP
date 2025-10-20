@@ -18,6 +18,12 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	std::cout << "parameterized constructor for ScavTrap " << name << " called" << std::endl;
 }
 
+ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(copy)
+{
+	in_guard = copy.in_guard;
+	std::cout << "copy constructor for ScavTrap " << name << " called" << std::endl;
+}
+
 ScavTrap::~ScavTrap() {std::cout << "destructor for ScavTrap " << this->name << " called" << std::endl;}
 
 ScavTrap& ScavTrap::operator=(const ScavTrap &copy)
