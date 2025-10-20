@@ -9,7 +9,7 @@ NAME = ScavTrap
 
 all: $(NAME)
 
-%.o: %.cpp ClapTrap.hpp ScavTraphpp
+%.o: %.cpp ClapTrap.hpp ScavTrap.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 
