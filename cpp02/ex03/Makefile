@@ -9,7 +9,7 @@ NAME = Point
 
 all: $(NAME)
 
-%.o: %.cpp Fixed.cpp
+%.o: %.cpp Fixed.hpp Point.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 

@@ -1,15 +1,15 @@
-SRCS = main.cpp Fixed.cpp
+SRCS = main.cpp ClapTrap.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
 CC = c++
 CFLAGS = -std=c++98 -Wall -Wextra -Werror
 
-NAME = Fixed
+NAME = ClapTrap
 
 all: $(NAME)
 
-%.o: %.cpp Fixed.hpp
+%.o: %.cpp ClapTrap.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 
