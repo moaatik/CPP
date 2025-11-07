@@ -1,17 +1,16 @@
-SRCS = main.cpp phonebook.cpp contact.cpp
+SRCS = main.cpp PhoneBook.cpp Contact.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
 CC = c++
-CFLAGS = -std=c++98 -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
-NAME = phonebook
+NAME = PhoneBook
 
 all: $(NAME)
 
-%.o: %.cpp phonebook.hpp contact.hpp
+%.o: %.cpp PhoneBook.hpp Contact.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
-
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)

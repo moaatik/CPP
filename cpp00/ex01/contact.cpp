@@ -1,8 +1,19 @@
-#include "contact.hpp"
+#include "Contact.hpp"
+
+Contact::Contact ()
+{
+	index = -1;
+}
+Contact::~Contact() {}
+
+int	Contact::get_index()
+{
+	return index;
+}
 
 int	isPrintable(std::string input)
 {
-	for (int i = 0; input[i] ; i++)
+	for (int i = 0; input[i]; i++)
 	{
 		if (!isprint(input[i]))
 		{
@@ -13,7 +24,7 @@ int	isPrintable(std::string input)
 	return (1);
 }
 
-void	Contact::set_contact(int contact_index)
+void Contact::set_contact(int contact_index)
 {
 	first_name.clear();
 	last_name.clear();
@@ -25,6 +36,8 @@ void	Contact::set_contact(int contact_index)
 	{
 		std::cout << "Enter First Name" << std::endl;
 		getline(std::cin, first_name);
+		if (std::cin.eof())
+			return;
 		if (!isPrintable(first_name))
 			first_name.clear();
 	}
@@ -32,6 +45,8 @@ void	Contact::set_contact(int contact_index)
 	{
 		std::cout << "Enter Last Name" << std::endl;
 		getline(std::cin, last_name);
+		if (std::cin.eof())
+			return;
 		if (!isPrintable(last_name))
 			last_name.clear();
 	}
@@ -39,6 +54,8 @@ void	Contact::set_contact(int contact_index)
 	{
 		std::cout << "Enter Nick Name" << std::endl;
 		getline(std::cin, nick_name);
+		if (std::cin.eof())
+			return;
 		if (!isPrintable(nick_name))
 			nick_name.clear();
 	}
@@ -46,6 +63,8 @@ void	Contact::set_contact(int contact_index)
 	{
 		std::cout << "Enter Phone Number" << std::endl;
 		getline(std::cin, phone_number);
+		if (std::cin.eof())
+			return;
 		if (!isPrintable(phone_number))
 			phone_number.clear();
 	}
@@ -53,32 +72,34 @@ void	Contact::set_contact(int contact_index)
 	{
 		std::cout << "Enter the Dark Secret" << std::endl;
 		getline(std::cin, darkest_secret);
+		if (std::cin.eof())
+			return;
 		if (!isPrintable(darkest_secret))
 			darkest_secret.clear();
 	}
 	index = contact_index;
 }
 
-void	Contact::print_search_format()
+void Contact::print_search_format()
 {
 	if (first_name.empty())
-		return ;
+		return;
 
 	std::string elements[] = {first_name, last_name, nick_name};
-	std::cout<<"|";
+	std::cout << "|";
 	std::cout << std::setw(10) << index;
 	for (int i = 0; i < 3; i++)
 	{
-		std::cout<<"|";
+		std::cout << "|";
 		if (elements[i].length() > 10)
 			std::cout << elements[i].substr(0, 9) << ".";
 		else
 			std::cout << std::setw(10) << elements[i];
 	}
-	std::cout<<"|"<<std::endl;
+	std::cout << "|" << std::endl;
 }
 
-void	Contact::print_full_format()
+void Contact::print_full_format()
 {
 	std::cout << "index of the entry : " << index << std::endl;
 	std::cout << "First Name of the entry : " << first_name << std::endl;
