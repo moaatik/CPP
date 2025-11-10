@@ -2,6 +2,7 @@
 # define ZOMBIE_HPP
 
 # include <iostream>
+#include <new>
 
 class Zombie
 {

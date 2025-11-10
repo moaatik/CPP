@@ -10,9 +10,5 @@ void	Zombie::set_name(std::string name) {this->name = name;}
 
 void	Zombie::announce()
 {
-	if (name!="Foo")
-		std::cout << '<'<<name<<'>';
-	else
-		std::cout<<name;
-	std::cout << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }

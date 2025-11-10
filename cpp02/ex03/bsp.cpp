@@ -23,7 +23,6 @@ Fixed	get_area(Point const &a, Point const &b, Point const &c)
 
 bool bsp( Point const a, Point const b, Point const c, Point const point)
 {
-	(void)point;
 	Fixed ABC = get_area(a, b, c);
 
 	Fixed PBC = get_area(point, b, c);
