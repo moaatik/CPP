@@ -3,7 +3,7 @@ SRCS = main.cpp Fixed.cpp Point.cpp bsp.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 CC = c++
-CFLAGS = -std=c++98 -Wall -Wextra -Werror
+CFLAGS =  -Wall -Wextra -Werror
 
 NAME = Point
 
